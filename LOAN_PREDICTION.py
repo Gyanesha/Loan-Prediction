@@ -9,8 +9,8 @@ def read():
     train = pd.read_csv(os.path.join(settings.PROCESSED_DIR, "train.csv"))
     return train
 
-def cross_validate(train):
-    clf = LogisticRegression(random_state=1, class_weight="balanced")
+def cross_validation(train):
+    clf = LogisticRegression(random_state=1, class_weight="balancing")
 
     predictors = train.columns.tolist()
     predictors = [p for p in predictors if p not in settings.NON_PREDICTORS]
